@@ -169,7 +169,6 @@
       padding: 0.8rem 2rem;
       background: #444;
       color: #ccc;
-      position: fixed;
       transition: all 0.3s ease;
       z-index: 10;
     }
@@ -255,8 +254,8 @@
     <div class="flowers">&#x1F339; &#x1F33A; &#x1F337; &#x1F33B; &#x1F338;</div>
     <div class="buttons-row">
       <button class="btn-yes" onclick="goToPage(3)">YES</button>
+      <button class="btn-no" id="btnNo" onmouseenter="dodgeNo()" onclick="dodgeNo()">NO</button>
     </div>
-    <button class="btn-no" id="btnNo" onmouseenter="dodgeNo()" onclick="dodgeNo()">NO</button>
   </div>
 
   <!-- Page 3: Celebration -->
@@ -267,8 +266,8 @@
     <p class="subtitle">NO RETURNS :)</p>
     <div class="celebration-images">
       <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWgyb3RkOHd1bTF2YjBpdjN2OTd2azd1ZG93b21uZXhsMTByaDR2dSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/26BRv0ThflsHCqDrG/giphy.gif" alt="Love gif">
-      <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHJ6cWpuZWphOGd4N2syMTZpc3MyMDlhZnY3NHF6NWI5OWpnYjRjeCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/llmrnMkLjcssud02GP/giphy.gif" alt="Heart gif">
-      <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjlyYXZwY3R6cG42bXFudnR1YzR4NjdyY2FxNnR0MHgzOWV3MXE5byZlcD12MV9naWZzX3NlYXJjaCZjdD1n/SiGg0fEgrqkXKS1Mwf/giphy.gif" alt="Valentine gif">
+      <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExN250NGFzamsyamJ4ZHFjcmFsdDVuOXh3OW81bDNtNzM5YWlvM2VtbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l4pTdcifPZLpDjL1e/giphy.gif" alt="Heart gif">
+      <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGN4eWg1d2lobjdscTZ0ZG15ZmNvMnN3dDljb2Ztcms3eG01c2FvbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6gbeVN2ZPbG2COKA/giphy.gif" alt="Valentine gif">
     </div>
   </div>
 
@@ -311,14 +310,17 @@
 
     function resetNo() {
       noScale = 1;
-      btnNo.style.fontSize = '1.1rem';
-      btnNo.style.padding = '0.8rem 2rem';
-      btnNo.style.left = '60%';
-      btnNo.style.top = '55%';
+      btnNo.style.position = '';
+      btnNo.style.left = '';
+      btnNo.style.top = '';
+      btnNo.style.transform = '';
+      btnNo.style.opacity = '';
+      btnNo.style.pointerEvents = '';
     }
 
     function dodgeNo() {
       noScale *= 0.82;
+      btnNo.style.position = 'fixed';
 
       const vw = window.innerWidth;
       const vh = window.innerHeight;
